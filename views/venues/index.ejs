@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+  <div class="container">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+     <div class="jumbotron">
+        <h1 class="display-4">WELCOME TO VENUES SHOWPAGE</h1>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg " href="/venues/new" role="button">Add New Venue</a>
+    </div>
+  </div>
+</div>
+
+<div class = 'container-fluid'>
+  <div class = 'row'>
+      <% venues.forEach((venue) => {  %>
+      <div class = 'col-md-6 col-lg-4'>
+        <div class = 'img-thumbnail p-0 mb-5'>
+          <img src = '<%= venue.image %>'>
+          <div class = 'caption p-2 text-center'>
+             <h4><%= venue.name %></h4>
+             <p>
+               <a href="/venues/<%= venue._id %>" class = 'btn btn-lg btn-info'>More Info</a>
+             </p>
+             </div>
+        </div>
+      </div>
+      <% }) %>
+     </div>
+</div>
+
+
+
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,60 @@
+<% include ../partials/header %>
+
+<ul style="display:flex; list-style: none; justify-content: space-around; margin: 25px auto; ">
+<li style="flex-basis: 20%;">
+<h3>DestinationWedding</h3>
+<ul style="display:flex; " class="list-group">
+  <li class="list-group-item active">Info 1</li>
+  <li class="list-group-item">Info 2</li>
+  <li class="list-group-item">Info 3</li>
+  <div id = "map"></div>
+</ul>
+</li>
+
+<li style="flex-basis: 50%;">
+<div  class="card mb-3 mx-auto">
+  <img  src="<%= venue.image %>" class="card-img-top" style="height: 70vh;">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title  text-center display-4"><%= venue.name %></h5>
+    <p class="card-text"><% for (var i =0; i<5; i++) {%> 
+                                                       <i class="far fa-star"></i>
+                                                   <%}%> 
+    <span class="card-text float-right"><i class="fas fa-rupee-sign"></i><mark class = "font-weight-bold"><%= venue.price %></mark>/night</span></p>
+    <br>
+     <h5 class="card-text "><%= venue.description %></h5>
+     <p>
+       <em>Submitted By : <%= venue.author.username %></em>
+     </p>
+     <% if(currentUser && venue.author.id.equals(currentUser._id)){ %>
+     <a class = 'btn btn-xs btn-warning' href='/venues/<%= venue._id %>/edit'>Edit</a>
+     <form class = 'delete-form' action = '/venues/<%= venue._id %>?_method=DELETE' method = 'POST'>
+       <button class = 'btn btn-xs btn-danger'>Delete</button>
+       <% } %>
+     </form>
+  </div>
+</div>
+
+<div class="card mx-auto" >
+  <div class="card-body">
+    <h5 class="card-title float-right"><a href = '/venues/<%= venue._id %>/comments/new'><button class = 'btn btn-primary'>Add New Comment</button></a></h5>
+    <br>
+    <br>
+       <% venue.comments.forEach((comment) => { %>
+    <p class="card-text"><strong><%= comment.author.username %>:</strong> <%= comment.text %></p>
+         <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+         <a class = 'btn btn-xs btn-warning' href = '/venues/<%= venue._id %>/comments/<%= comment._id %>/edit'>Edit</a>
+         <form class = 'delete-form' action = '/venues/<%= venue._id %>/comments/<%= comment._id %>?_method=DELETE' method = 'POST'>
+           <input type = 'Submit' class = 'btn btn-xs btn-danger' value = 'Delete'>
+         </form>
+        <% } %>
+          <% }); %>
+  </div>
+</div>
+</div>
+</li>
+</ul>
+
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,44 @@
+.navbar {
+    font-size: 2.5rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0 2rem;
+}
+
+.fa, .fas{
+    color:#F49D9D;
+}
+
+.container .jumbotron .display-4 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    word-spacing: .5rem;
+    color: #f49d9d;
+}
+
+.img-thumbnail img {
+    width: 100%;
+    height: max-content;
+    block-size: 400px;
+}
+
+.delete-form{
+    display: inline;
+}
+
+    
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+#landing{
+    font-size: 3rem;
+    font-family: sans-serif;
+    opacity: 0.5;
+    font-weight: bold;
+    color: #b7148e;
+}
