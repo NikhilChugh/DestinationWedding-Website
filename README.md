@@ -7,7 +7,7 @@ A node js app using Express and MongoDB
 Make sure you have Node.js installed.
 
 ```
-git clone git@github.com:NikhilChugh/DestinationWedding-Website.git
+git clone https://github.com/NikhilChugh/DestinationWedding-Website.git
 cd DestinationWedding
 npm install
 npm start 
